@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner:false,
       theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: "Oswald"
+          fontFamily: "Oswald",
+          useMaterial3: true
       ),
       // home: HomePage(),
       routerConfig: router,

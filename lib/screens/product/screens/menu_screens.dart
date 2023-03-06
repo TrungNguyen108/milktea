@@ -77,6 +77,8 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
                       isScrollable: true,
                       labelColor: Colors.black,
                       indicatorColor: Colors.transparent,
+                      dividerColor: Colors.transparent,
+                      overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
                       labelPadding: EdgeInsets.all(0),
                       indicatorSize: TabBarIndicatorSize.label,
                       tabs: [
@@ -84,7 +86,7 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
                           Tab(
                             iconMargin: EdgeInsets.only(right: 0.0),
                             child: Container(
-                              padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 5),
+                              padding: EdgeInsets.only(left: 20,right: 20,top: 7,bottom: 7),
                               margin: EdgeInsets.only(right: 15),
                               decoration: BoxDecoration(
                                 border: Border.all(width: 1,color: indexTab == i? Colors.transparent:Colors.black,),
