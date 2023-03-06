@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:mikltea/screens/home/screens/homepage_screen.dart';
+
+import '../../product/screens/home_screens.dart';
+
 
 class Createpass_screen extends StatefulWidget {
   const Createpass_screen({Key? key}) : super(key: key);
@@ -88,7 +90,7 @@ class _Createpass_screenState extends State<Createpass_screen> {
                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                        child: GFButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
                         },
                         text: "Đăng nhập",
                         textStyle: TextStyle(
