@@ -25,12 +25,6 @@ class _RequestState extends State<Request> {
     });
   }
 
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
