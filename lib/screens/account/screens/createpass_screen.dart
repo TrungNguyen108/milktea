@@ -16,9 +16,10 @@ class _Createpass_screenState extends State<Createpass_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        backgroundColor: Color(0xFFFFFFFFF),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        title:Text("Tạo mật khảu mới ",style: TextStyle(
+        iconTheme: IconThemeData(color: Colors.black),
+        title:Text("Tạo mật khẩu mới ",style: TextStyle(
           color: Colors.black,
         ),),
       ) ,
@@ -34,7 +35,6 @@ class _Createpass_screenState extends State<Createpass_screen> {
                 child: Image.asset('assets/images/taomk.png',),
               ),
               SizedBox(
-                height: 330,
                 child:Column(
                   children: [
                     Padding(
@@ -42,7 +42,7 @@ class _Createpass_screenState extends State<Createpass_screen> {
                       child: Align(child: Text('Nhập lại mật khẩu mới của bạn ',style: TextStyle(
                         fontSize: 15,
                         color: Color(0xFF9A9A9A),
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w300,
                       ),),alignment: Alignment.centerLeft,),
                     ),
                     Padding(
@@ -74,8 +74,8 @@ class _Createpass_screenState extends State<Createpass_screen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Checkbox(
-                                checkColor: Colors.greenAccent,
-                                activeColor: Colors.red,
+                                checkColor: Colors.deepOrange,
+                                activeColor: Colors.deepOrange,
                                 value: this.valuefirst,
                                 onChanged: null
                             ),

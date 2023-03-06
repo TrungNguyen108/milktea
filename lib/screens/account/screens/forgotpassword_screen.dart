@@ -18,6 +18,8 @@ class _ForgotpasswordState extends State<Forgotpassword> {
         title:Text("Quên mật khẩu ",style: TextStyle(
           color: Colors.black,
         ),),
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
       ) ,
       body: SingleChildScrollView(
         child: Container(

@@ -34,8 +34,9 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        backgroundColor: Color(0xFFfffff),
-
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
       ) ,
       body: SingleChildScrollView(
         child: Container(
@@ -46,7 +47,7 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Center(
-                  child: Text("TWelcome The Alley Tea",style: TextStyle(
+                  child: Text("Welcome The Alley Tea",style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF0E0E0E)
@@ -101,7 +102,8 @@ class _LoginState extends State<Login> {
                          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                          child: Align(child: Text('Quên mật khẩu?',style: TextStyle(
                            fontSize: 13,
-                           fontWeight: FontWeight.w100,
+                           color: Color(0xFF222222),
+                           fontWeight: FontWeight.w300,
                          ),),alignment: Alignment.centerRight,),
                        ),
                      ],
@@ -134,14 +136,16 @@ class _LoginState extends State<Login> {
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
                    GFIconButton(
+                     color: Colors.black26,
                      onPressed: (){},
-                     icon: Icon(Icons.facebook),
+                     icon: Icon(Icons.facebook,color: Colors.blue,),
                      type: GFButtonType.outline,
                    ),
                    SizedBox(width: 10,),
                    GFIconButton(
+                     color: Colors.black26,
                      onPressed: (){},
-                     icon: Icon(Icons.facebook),
+                     icon: Icon(Icons.g_mobiledata,color: Colors.deepOrange),
                      type: GFButtonType.outline,
                    ),
                  ],

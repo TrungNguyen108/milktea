@@ -13,12 +13,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:AppBar(
-          backgroundColor: Color(0xFFFFC6B2),
-          title:Text("Home Screen",style: TextStyle(
-            color: Colors.black87,
-          ),),
-        ) ,
       body: Container(
         color: Color(0xFFFFC6B2),
         //You can use any widget
@@ -57,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GFButton(
+                              highlightElevation: GFSize.LARGE,
+                              padding: EdgeInsets.only(left: 50,right: 50,),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
                               },
@@ -66,6 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(width: 10,),
                             GFButton(
+                              highlightElevation: GFSize.LARGE,
+                              padding: EdgeInsets.only(left: 40,right: 40,),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                               },
