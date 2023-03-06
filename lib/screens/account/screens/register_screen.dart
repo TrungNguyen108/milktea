@@ -12,7 +12,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        backgroundColor: Color(0xFFFFF),
+        backgroundColor: Colors.transparent,
       ) ,
       body: SingleChildScrollView(
           //You can use any widget

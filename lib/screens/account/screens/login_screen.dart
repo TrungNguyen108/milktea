@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:mikltea/screens/home/screens/homepage_screen.dart';
 
+import '../../product/screens/home_screens.dart';
 import 'Forgotpassword_screen.dart';
 import 'register_screen.dart';
 class Login extends StatefulWidget {
@@ -80,6 +80,7 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 child:  TextField(
+                  obscureText: true,
                   controller: _passController,
                   decoration: InputDecoration(
                     fillColor: Color(0xFFF5F5FA),
@@ -192,7 +193,7 @@ class _LoginState extends State<Login> {
       _passInvalid = false;
       }
       if(!_passInvalid && !_userInvalid){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
       }
     });
   }

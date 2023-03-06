@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mikltea/layout.dart';
 
-import 'order/layout_order.dart';
 
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() async{
   await Hive.initFlutter();
-  runApp(const ProviderScope(child: MyApp()));
+
+  // runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,14 +19,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:false,
       theme: ThemeData(
-        useMaterial3: true,
-        textTheme: GoogleFonts.oswaldTextTheme(Theme.of(context).textTheme),
+          primarySwatch: Colors.blue,
+          fontFamily: "Oswald"
       ),
-      home: LayoutOrder(),
+      // home: HomePage(),
+      routerConfig: router,
     );
   }
 }
