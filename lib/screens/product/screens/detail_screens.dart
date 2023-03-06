@@ -129,17 +129,19 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                 IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 30,color: Color(0xFFFB9116)))
                               ],
                             ),
+
                             GFTabBar(
                               length: 2,
                               tabBarColor: Colors.transparent,
                               controller: tabController,
+                              shape: Border(bottom: BorderSide(color: Color(0xFFEFEFEF))),
                               isScrollable: false,
                               indicatorColor: Color(0xFFFB9116),
-                              indicatorPadding: EdgeInsets.all(0),
+                              indicatorPadding: EdgeInsets.all(-2),
                               indicatorWeight: 3,
                               tabBarHeight: 50,
+                              indicatorSize: TabBarIndicatorSize.tab,
                               width: MediaQuery.of(context).size.width - 40,
-                              shape: Border(bottom: BorderSide(color: Color(0xFFEFEFEF))),
                               tabs: [
                                 Tab(
                                   child: Text(
