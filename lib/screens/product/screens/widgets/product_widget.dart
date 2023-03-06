@@ -15,7 +15,7 @@ class ItemProduct extends StatelessWidget {
       width: 160,
       child: OpenContainer(
         transitionType: transitionType,
-        transitionDuration: Duration(seconds: 1),
+        transitionDuration: Duration(milliseconds: 700),
         openBuilder: (context, _) => DetailProduct(id: num.parse(item.id.toString())),
         closedElevation: 0,
         closedBuilder: (context, action) {
