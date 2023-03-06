@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'order_history_screen.dart';
+
 class OrderEmpty extends StatefulWidget {
   const OrderEmpty({Key? key}) : super(key: key);
 
@@ -12,16 +14,23 @@ class _OrderEmptyState extends State<OrderEmpty> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Đơn hàng",
-            style: TextStyle(
-                fontFamily: 'Oswald',
-                color: Color(0xff222222),
-                fontSize: 18,
-                fontWeight: FontWeight.w500)),
+        backgroundColor: const Color(0xffffffff),
+        elevation: 0,
+        leadingWidth: 130,
+        leading: ElevatedButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(Icons.arrow_back_ios_new,color: Colors.black,size: 20,),
+          label: const Text('Đơn hàng',style: TextStyle(fontSize: 18, color: Colors.black),),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+          ),
+        ),
         actions: <Widget>[
           TextButton(
             onPressed: () {
-
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const OrderHistory()));
             },
             child: const Text('Lịch sử đặt hàng',
                 style: TextStyle(

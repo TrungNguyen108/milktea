@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:mikltea/screens/product/screens/list_screens.dart';
 
-import '../../order/layout_order.dart';
+import '../../order/screens/order_screen.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
@@ -79,7 +79,7 @@ class ProductScreen extends ConsumerWidget {
                       color: Color(0xFFFFF5EB),
                       child: IconButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LayoutOrder()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Order()));
                         },
                         icon: Icon(Icons.shopping_bag, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5))
                   ),

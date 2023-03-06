@@ -34,7 +34,6 @@ class _Createpass_screenState extends State<Createpass_screen> {
                 child: Image.asset('assets/images/taomk.png',),
               ),
               SizedBox(
-                height: 330,
                 child:Column(
                   children: [
                     Padding(
