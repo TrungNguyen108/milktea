@@ -157,7 +157,7 @@ class TabProduct extends ConsumerWidget {
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 205,childAspectRatio:0.9),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: data?.length,
+              itemCount: data!.length > 10 ? 10 : data.length,
               itemBuilder: (BuildContext context, i) {
                 return ItemProduct(item: data![i]);
               },

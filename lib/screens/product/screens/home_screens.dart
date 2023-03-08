@@ -7,6 +7,7 @@ import '../../order/screens/order_screen.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
+import 'like_product_screens.dart';
 import 'widgets/bottombar.dart';
 import 'widgets/product_widget.dart';
 import 'widgets/search_widget.dart';
@@ -67,7 +68,11 @@ class ProductScreen extends ConsumerWidget {
                         width: 32,
                         height: 32,
                         color: Color(0xFFFFF5EB),
-                        child: IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 20,color: Color(0xFF808089),),padding: new EdgeInsets.all(5))
+                        child: IconButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => LikeProduct()));
+                            },
+                            icon: Icon(Icons.favorite, size: 20,color: Color(0xFF808089),),padding: new EdgeInsets.all(5))
                     ),
                   ),
                 ),

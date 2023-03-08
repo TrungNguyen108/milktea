@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../cart/screen/cart_screen.dart';
+import '../../../cart/screens/cart_screens.dart';
 import '../../../user/screen/account_screen.dart';
 import '../../provider/tab_provider.dart';
 import '../home_screens.dart';
@@ -26,7 +26,7 @@ class _BottomBarState extends ConsumerState<BottomBar>{
         Navigator.push(context, MaterialPageRoute(builder: (context) => MenuProduct()));
         break;
       case 2:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CartSceen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
         break;
       case 3:
         Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen()));

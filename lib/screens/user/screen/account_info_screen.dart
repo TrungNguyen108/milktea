@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../product/screens/widgets/bottombar.dart';
+
 class AccountInfoScreen extends ConsumerWidget {
   const AccountInfoScreen({super.key});
 
@@ -313,6 +315,7 @@ class AccountInfoScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }
