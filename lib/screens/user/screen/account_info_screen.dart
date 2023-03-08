@@ -10,7 +10,10 @@ class AccountInfoScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Thông tin tài khoản'),
+        title: const Text(
+          'Thông tin tài khoản',
+          style: TextStyle(color: Color(0xff222222)),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: GestureDetector(
@@ -61,7 +64,7 @@ class AccountInfoScreen extends ConsumerWidget {
                               child: SizedBox(
                                 width: 80,
                                 height: 80,
-                                child: Image.asset('assets/image/No_Image_Available.jpg',fit: BoxFit.fill),
+                                child: Image.asset('assets/image/No_Image_Available.jpg', fit: BoxFit.fill),
                               ),
                             ),
                             Positioned(

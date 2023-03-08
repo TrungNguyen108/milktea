@@ -4,14 +4,12 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mikltea/layout.dart';
 
-
-void main() async{
+void main() async {
   await Hive.initFlutter();
 
   // runApp(const MyApp());
   runApp(ProviderScope(child: MyApp()));
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,11 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
-      debugShowCheckedModeBanner:false,
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: "Oswald"
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blue, fontFamily: "Oswald"),
       // home: HomePage(),
       routerConfig: router,
     );

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../product/screens/widgets/bottombar.dart';
+
 class AccountScreen extends ConsumerWidget {
   const AccountScreen({super.key});
 
@@ -44,7 +46,7 @@ class AccountScreen extends ConsumerWidget {
                                       child: SizedBox(
                                         width: 80,
                                         height: 80,
-                                        child: Image.asset('assets/image/No_Image_Available.jpg',fit: BoxFit.fill),
+                                        child: Image.asset('assets/image/No_Image_Available.jpg', fit: BoxFit.fill),
                                       ),
                                     ),
                                     Positioned(
@@ -322,6 +324,7 @@ class AccountScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }
