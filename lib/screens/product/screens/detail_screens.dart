@@ -345,4 +345,3 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
     );
   }
 }
-
