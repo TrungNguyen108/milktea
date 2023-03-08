@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../order/layout_order.dart';
+import '../../order/screens/order_screen.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
@@ -55,7 +55,7 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
             Text('Menu',style: TextStyle(fontSize: 18, color: Colors.black),),
             IconButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LayoutOrder()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Order()));
               },
               icon: Icon(Icons.shopping_bag, size: 25,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),)
           ],
@@ -77,6 +77,8 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
                       isScrollable: true,
                       labelColor: Colors.black,
                       indicatorColor: Colors.transparent,
+                      dividerColor: Colors.transparent,
+                      overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
                       labelPadding: EdgeInsets.all(0),
                       indicatorSize: TabBarIndicatorSize.label,
                       tabs: [
@@ -84,7 +86,7 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
                           Tab(
                             iconMargin: EdgeInsets.only(right: 0.0),
                             child: Container(
-                              padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 5),
+                              padding: EdgeInsets.only(left: 20,right: 20,top: 7,bottom: 7),
                               margin: EdgeInsets.only(right: 15),
                               decoration: BoxDecoration(
                                 border: Border.all(width: 1,color: indexTab == i? Colors.transparent:Colors.black,),

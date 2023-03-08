@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blue, fontFamily: "Oswald"),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Oswald"),
       // home: HomePage(),
       routerConfig: router,
     );

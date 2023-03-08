@@ -57,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
                               },
@@ -66,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(width: 10,),
                             GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                               },
