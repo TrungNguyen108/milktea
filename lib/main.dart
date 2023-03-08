@@ -11,9 +11,9 @@ import 'screens/product/model/like_model_hive.dart';
 void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(CartModelHiveAdapter());
-  final _boxCart = await Hive.openBox('cart');
+  // final _boxCart = await Hive.openBox('cart');
   Hive.registerAdapter(LikeModelHiveAdapter());
-  final _boxLike = await Hive.openBox('like');
+  // final _boxLike = await Hive.openBox('like');
   // _boxLike.clear();
 
   // runApp(const MyApp());
