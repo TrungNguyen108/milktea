@@ -12,13 +12,15 @@ class Createpass_screen extends StatefulWidget {
 
 class _Createpass_screenState extends State<Createpass_screen> {
   bool valuefirst = false;
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        backgroundColor: Color(0xFFFFFFFFF),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        title:Text("Tạo mật khảu mới ",style: TextStyle(
+        iconTheme: IconThemeData(color: Colors.black),
+        title:Text("Tạo mật khẩu mới ",style: TextStyle(
           color: Colors.black,
         ),),
       ) ,
@@ -41,7 +43,7 @@ class _Createpass_screenState extends State<Createpass_screen> {
                       child: Align(child: Text('Nhập lại mật khẩu mới của bạn ',style: TextStyle(
                         fontSize: 15,
                         color: Color(0xFF9A9A9A),
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w300,
                       ),),alignment: Alignment.centerLeft,),
                     ),
                     Padding(
@@ -68,26 +70,35 @@ class _Createpass_screenState extends State<Createpass_screen> {
                         ),
                       ),
                     ),
-                      Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Checkbox(
-                                checkColor: Colors.greenAccent,
-                                activeColor: Colors.red,
-                                value: this.valuefirst,
-                                onChanged: null
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            child: GFCheckbox(
+                              size: GFSize.LARGE,
+                              activeBgColor: Color(0xFFFFB9116),
+                              onChanged: (value) {
+                                setState(() {
+                                  isChecked = value;
+                                });
+                              },
+                              value: isChecked,
+                              inactiveIcon: null,
                             ),
-                            Text("Nhớ mật khẩu",style: TextStyle(
+                          ),
+                          Text("Nhớ mật khẩu",style: TextStyle(
                               fontSize: 13
-                            ),)
+                          ),)
 
-                          ],
-                        ),
+                        ],
                       ),
-                     Padding(
-                       padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                       child: GFButton(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      child: GFButton(
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
                         },
@@ -100,8 +111,8 @@ class _Createpass_screenState extends State<Createpass_screen> {
                         color: Color(0xFFFFB9116),
                         shape: GFButtonShape.pills,
                         size: GFSize.LARGE,
+                      ),
                     ),
-                     ),
                   ],
                 ),
               )

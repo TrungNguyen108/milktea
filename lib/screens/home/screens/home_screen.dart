@@ -13,12 +13,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:AppBar(
-          backgroundColor: Color(0xFFFFC6B2),
-          title:Text("Home Screen",style: TextStyle(
-            color: Colors.black87,
-          ),),
-        ) ,
       body: Container(
         color: Color(0xFFFFC6B2),
         //You can use any widget

@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../model/like_model.dart';
 import '../provider/like_provider.dart';
+import 'home_screens.dart';
 
 List<LikeModel> items = [];
 
@@ -31,7 +32,7 @@ class LikeProduct extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(10),
-          child: Column(
+          child: items.length > 0?Column(
             children: [
               for(int i = 0;i < items.length;i++)...[
                 Container(
@@ -80,7 +81,55 @@ class LikeProduct extends ConsumerWidget {
                   ),
                 ),
               ],
-            ],
+            ]
+          ):Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  child: Image.asset("assets/images/cart_emty.png"),
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(left: 0, top: 20, right: 0, bottom: 0),
+                  child: const Text("Bạn chưa có sản phẩm nào",
+                      style: TextStyle(
+                          fontFamily: 'Oswald',
+                          color: Color(0xff222222),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center),
+                ),
+                Container(
+                  margin:
+                  const EdgeInsets.only(left: 0, top: 5, right: 0, bottom: 20),
+                  child: const Text(
+                      "Bạn nghĩ thế nào về việc thử đồ uống mới của chúng tôi ?",
+                      style: TextStyle(
+                          fontFamily: 'Oswald',
+                          color: Color(0xff222222),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color(0xffFB9116),
+                      minimumSize: const Size(350, 42) // NEW,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+                  },
+                  child: const Text(
+                    'Trở về',
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

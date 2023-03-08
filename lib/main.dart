@@ -14,7 +14,8 @@ void main() async{
   // final _boxCart = await Hive.openBox('cart');
   Hive.registerAdapter(LikeModelHiveAdapter());
   // final _boxLike = await Hive.openBox('like');
-  // _boxLike.clear();
+  // _boxCart.clear();
+
 
   // runApp(const MyApp());
   runApp(ProviderScope(child: MyApp()));
