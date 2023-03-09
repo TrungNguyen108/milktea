@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../product/screens/widgets/bottombar.dart';
 
 class AccountScreen extends ConsumerWidget {
   const AccountScreen({super.key});
@@ -23,11 +24,7 @@ class AccountScreen extends ConsumerWidget {
                   children: [
                     Stack(
                       children: [
-                        Image.asset(
-                          'assets/image/tk_top.png',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
+                        Image.asset('assets/image/tk_top.png',width: double.infinity,fit: BoxFit.cover,),
                         Container(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
@@ -322,6 +319,7 @@ class AccountScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

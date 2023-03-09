@@ -19,7 +19,7 @@ class _OrderState extends ConsumerState<Order> with TickerProviderStateMixin {
   @override
 
   Widget build(BuildContext context) {
-    final _listOderStatusNew = ref.watch(OrderController.futureOrderStatusNewProvider("2"));
+    final _listOderStatusNew = ref.watch(OrderController.futureOrderStatusNewProvider("1"));
     if (_listOderStatusNew.value == null) {
       return OrderEmpty();
     }else{

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import '../../cart/screen/cart_screen.dart';
+import 'package:material_dialogs/dialogs.dart';
+import 'package:material_dialogs/widgets/buttons/icon_button.dart';
+import '../../cart/provider/cart_provider.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
+import '../provider/like_provider.dart';
+import 'like_product_screens.dart';
 
 
 class DetailProduct extends ConsumerStatefulWidget {
@@ -56,13 +61,8 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
   @override
   Widget build(BuildContext context) {
     final detail = ref.watch(futureDetailProductProvider(widget.id.toString()));
-    // final cartState = ref.watch(cartProvider);
-    // if(cartState.status == CartStatus.Success){
-    //   _myBox.put( cartState.id_product, [ cartState.id_product, cartState.qty, cartState.price ]);
-    //   // Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
-    // }
-    // print(_myBox.get);
-
+    final likeState = ref.watch(likeProvider);
+    // print(likeState.status);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -126,10 +126,50 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                     ),
                                   ],
                                 ),
-                                IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 30,color: Color(0xFFFB9116)))
+                                IconButton(
+                                    onPressed: (){
+                                      ref.read(likeProvider.notifier).LikeClick(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
+                                      if(likeState.status == LikeStatus.Loaded){
+                                        Dialogs.materialDialog(
+                                            context: context,
+                                            color: Colors.white,
+                                            title: 'Bạn đã like sản phẩm này!',
+                                            actions: [
+                                              IconsButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                text: 'Ok',
+                                                iconData: Icons.check,
+                                                color: Color(0xFFFB9116),
+                                                textStyle: const TextStyle(color: Colors.white),
+                                                iconColor: Colors.white,
+                                              )
+                                            ]
+                                        );
+                                      }else{
+                                        Dialogs.materialDialog(
+                                            context: context,
+                                            color: Colors.white,
+                                            title: 'Like sản phẩm thành công !',
+                                            actions: [
+                                              IconsButton(
+                                                onPressed: () {
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => LikeProduct()));
+                                                },
+                                                text: 'Ok',
+                                                iconData: Icons.check,
+                                                color: Color(0xFFFB9116),
+                                                textStyle: const TextStyle(color: Colors.white),
+                                                iconColor: Colors.white,
+                                              )
+                                            ]
+                                        );
+                                      }
+                                    },
+                                    icon: Icon(Icons.favorite, size: 30,color: (likeState.status == LikeStatus.Loaded)?Colors.red:Color(0xFFFB9116)))
                               ],
                             ),
-
                             GFTabBar(
                               length: 2,
                               tabBarColor: Colors.transparent,
@@ -137,7 +177,7 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                               shape: Border(bottom: BorderSide(color: Color(0xFFEFEFEF))),
                               isScrollable: false,
                               indicatorColor: Color(0xFFFB9116),
-                              indicatorPadding: EdgeInsets.all(-2),
+                              indicatorPadding: EdgeInsets.all(-3),
                               indicatorWeight: 3,
                               tabBarHeight: 50,
                               indicatorSize: TabBarIndicatorSize.tab,
@@ -200,14 +240,16 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                               ],
                             ),
                             SizedBox(height: 15),
-
                             Row(
                               children: [
                                 Container(
                                   width: 40,
                                   height: 40,
                                   child: GFButton(
-                                    onPressed: (){ _incrementCounter1(); },
+                                    onPressed: (){
+                                      _incrementCounter1();
+                                      ref.read(cartProvider.notifier).onChange(int.parse(_counter.toString()));
+                                    },
                                     text: "-",
                                     type: GFButtonType.outline,
                                     shape: GFButtonShape.pills,
@@ -230,7 +272,7 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                     ),
                                     style: TextStyle(fontSize: 18),
                                     onChanged: (String val) {
-                                      // ref.read(cartProvider.notifier).onChange(int.parse(val));
+                                      ref.read(cartProvider.notifier).onChange(int.parse(val));
                                     },
                                   ),
                                 ),
@@ -238,7 +280,10 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                   width: 40,
                                   height: 40,
                                   child: GFButton(
-                                    onPressed: (){ _incrementCounter(); },
+                                    onPressed: (){
+                                      _incrementCounter();
+                                      ref.read(cartProvider.notifier).onChange(int.parse(_counter.toString()));
+                                    },
                                     text: "+",
                                     type: GFButtonType.outline,
                                     shape: GFButtonShape.pills,
@@ -257,8 +302,8 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                     margin: EdgeInsets.only(right:10),
                                     child: GFButton(
                                         onPressed: (){
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => CartSceen()));
+                                          ref.read(cartProvider.notifier).AddCart(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
+                                          context.push('/cart');
                                         },
                                         text: "Mua Ngay",
                                         color: Color(0xFFFAF2EA),
@@ -271,8 +316,8 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                 Expanded(
                                   child: GFButton(
                                     onPressed: (){
-                                      // ref.read(cartProvider.notifier).AddCart(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => CartSceen()));
+                                      ref.read(cartProvider.notifier).AddCart(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
+                                      context.push('/cart');
                                     },
                                     text: "Thêm Vào Giỏ Hàng",
                                     color: Color(0xFFFB9116),
@@ -300,4 +345,3 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
     );
   }
 }
-

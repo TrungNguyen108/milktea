@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../order/screens/order_screen.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
@@ -55,7 +55,7 @@ class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderSt
             Text('Menu',style: TextStyle(fontSize: 18, color: Colors.black),),
             IconButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Order()));
+                context.push('/order');
               },
               icon: Icon(Icons.shopping_bag, size: 25,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),)
           ],
@@ -157,7 +157,7 @@ class TabProduct extends ConsumerWidget {
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 205,childAspectRatio:0.9),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: data?.length,
+              itemCount: data!.length > 10 ? 10 : data.length,
               itemBuilder: (BuildContext context, i) {
                 return ItemProduct(item: data![i]);
               },
