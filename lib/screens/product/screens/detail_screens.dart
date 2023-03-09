@@ -126,7 +126,27 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                     ),
                                   ],
                                 ),
-                                IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 30,color: Color(0xFFFB9116)))
+                                TextButton(
+                                  onPressed: () => showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) => AlertDialog(
+                                      backgroundColor: Colors.white,
+                                      title: const Text('Bạn có đồng ý thêm vào mục yêu thích',style: TextStyle(fontSize: 18),),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(context, 'OK'),
+                                          child: const Text('OK'),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  child: const IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 30,color: Color(0xFFFB9116)))
+                                ),
+
                               ],
                             ),
                             GFTabBar(

@@ -12,6 +12,25 @@ class Createpass_screen extends StatefulWidget {
 
 class _Createpass_screenState extends State<Createpass_screen> {
   bool valuefirst = false;
+  bool isChecked = false;
+  String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+  final TextEditingController _userController1 = TextEditingController();
+  final TextEditingController _passController1 = TextEditingController();
+  final _useNameErr1 = "Mật khẩu chưa khớp";
+  final _psssNameErr = "Mật khẩu trên 6 ký tự.";
+  var _userInvalid1 = false;
+  var _passInvalid = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
+  void dispose() {
+    _userController1.dispose();
+    _passController1.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,25 +66,29 @@ class _Createpass_screenState extends State<Createpass_screen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      child: const TextField(
+                      child: TextField(
                         obscureText: true,
+                        controller: _passController1,
                         decoration: InputDecoration(
-                          fillColor: Color(0xFFF5F5FA),
-                          filled: true,
-                          border: InputBorder.none,
-                          labelText: 'Mật khẩu ',
+                            fillColor: Color(0xFFF5F5FA),
+                            filled: true,
+                            border: InputBorder.none,
+                            labelText: 'Mật khấu',
+                            errorText: _passInvalid ? _psssNameErr : null
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      child: const TextField(
+                      child: TextField(
                         obscureText: true,
+                        controller: _userController1,
                         decoration: InputDecoration(
-                          fillColor: Color(0xFFF5F5FA),
-                          filled: true,
-                          border: InputBorder.none,
-                          labelText: 'Nhập lại mật khẩu',
+                            fillColor: Color(0xFFF5F5FA),
+                            filled: true,
+                            border: InputBorder.none,
+                            labelText: 'Nhập lại mật khẩu',
+                            errorText: _userInvalid1 ? _useNameErr1 : null
                         ),
                       ),
                     ),
@@ -73,11 +96,20 @@ class _Createpass_screenState extends State<Createpass_screen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Checkbox(
-                                checkColor: Colors.deepOrange,
-                                activeColor: Colors.deepOrange,
-                                value: this.valuefirst,
-                                onChanged: null
+                            Container(
+                              width: 40,
+                              height: 40,
+                              child: GFCheckbox(
+                                size: GFSize.LARGE,
+                                activeBgColor: Color(0xFFFFB9116),
+                                onChanged: (value) {
+                                  setState(() {
+                                    isChecked = value;
+                                  });
+                                },
+                                value: isChecked,
+                                inactiveIcon: null,
+                              ),
                             ),
                             Text("Nhớ mật khẩu",style: TextStyle(
                               fontSize: 13
@@ -89,9 +121,7 @@ class _Createpass_screenState extends State<Createpass_screen> {
                      Padding(
                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                        child: GFButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
-                        },
+                         onPressed: onSignInClicked,
                         text: "Đăng nhập",
                         textStyle: TextStyle(
                           fontSize: 15,
@@ -111,5 +141,23 @@ class _Createpass_screenState extends State<Createpass_screen> {
         ),
       ),
     );
+  }
+  void onSignInClicked(){
+    setState((){
+      if(_passController1.text.length < 6){
+        _passInvalid = true;
+      } else{
+        _passInvalid = false;
+      }
+      if(_userController1.text != _passController1.text){
+        _userInvalid1 = true;
+      }
+      else{
+        _userInvalid1=false;
+      }
+      if(!_passInvalid && !_userInvalid1){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+      }
+    });
   }
 }

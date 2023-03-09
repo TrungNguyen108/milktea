@@ -53,7 +53,7 @@ class ProductScreen extends ConsumerWidget {
                 text: TextSpan(
                     children: [
                       TextSpan(text: 'Xin Chào ',style: TextStyle(fontSize: 13,color: Color(0xFF656565),fontFamily: "Oswald-Regular"),),
-                      TextSpan(text: 'Nguyen Van A',style: TextStyle(fontSize: 13,color: Color(0xFF656565),fontFamily: 'Oswald-Medium'),)
+                      TextSpan(text: 'Châu Văn Đạt',style: TextStyle(fontSize: 13,color: Color(0xFF656565),fontFamily: 'Oswald-Medium'),)
                     ]
                 )
             ),

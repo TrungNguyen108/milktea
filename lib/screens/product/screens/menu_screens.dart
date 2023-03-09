@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../order/layout_order.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
@@ -17,7 +16,6 @@ class MenuProduct extends ConsumerStatefulWidget {
 }
 
 class _MenuProductState extends ConsumerState<MenuProduct> with TickerProviderStateMixin{
-
   late TabController tabController;
   int indexTab = 0;
 

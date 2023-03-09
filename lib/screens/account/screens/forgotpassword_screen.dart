@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'createpass_screen.dart';
 class Forgotpassword extends StatefulWidget {
   const Forgotpassword({Key? key}) : super(key: key);
@@ -10,6 +10,7 @@ class Forgotpassword extends StatefulWidget {
 }
 
 class _ForgotpasswordState extends State<Forgotpassword> {
+  int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 45;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,12 +139,15 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Gửi lại"),
-                        SizedBox(width: 5),
-                        Text("(00:45s)",style: TextStyle(
-                          color: Color(0xFFFB9116),
-                          fontSize: 15,
-                        ),)
+                        CountdownTimer(
+                          endWidget:  Container(
+                            child: Text('Gửi lại '),
+                          ),
+                          textStyle: TextStyle(
+                            color: Color(0xFFFB9116)
+                          ),
+                          endTime: endTime,
+                        ),
                       ],
                     ),
                   ),

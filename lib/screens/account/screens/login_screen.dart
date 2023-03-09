@@ -66,29 +66,38 @@ class _LoginState extends State<Login> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 70, 20, 20),
-                child:  TextField(
-                  controller: _userController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Color(0xFFF5F5FA),
-                    filled: true,
-                    border: InputBorder.none,
-                    labelText: 'Email hoặc số điện thoại',
-                      errorText: _userInvalid ? _useNameErr : null,
+                child:  Container(
+                  height: 50,
+                  child: TextField(
+                    controller: _userController,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      fillColor: Color(0xFFF5F5FA),
+                      filled: true,
+                      border: InputBorder.none,
+                      labelText: 'Email hoặc số điện thoại',
+                        errorText: _userInvalid ? _useNameErr : null,
+                    ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                child:  TextField(
-                  obscureText: true,
-                  controller: _passController,
-                  decoration: InputDecoration(
-                    fillColor: Color(0xFFF5F5FA),
-                    filled: true,
-                    border: InputBorder.none,
-                    labelText: 'Password',
-                    errorText: _passInvalid ? _psssNameErr : null
+                child:  Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  height: 50,
+                  child: TextField(
+                    obscureText: true,
+                    controller: _passController,
+                    decoration: InputDecoration(
+                      fillColor: Color(0xFFF5F5FA),
+                      filled: true,
+                      border: InputBorder.none,
+                      labelText: 'Password',
+                      errorText: _passInvalid ? _psssNameErr : null
+                    ),
                   ),
                 ),
               ),

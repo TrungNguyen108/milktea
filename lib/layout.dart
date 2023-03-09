@@ -12,7 +12,7 @@ import 'screens/user/screen/account_info_screen.dart';
 // import 'package:milktea/screen/product_detail_screen.dart';
 
 final GoRouter router = GoRouter(
-  debugLogDiagnostics: true,
+  debugLogDiagnostics: false,
   routes: [
     GoRoute(
       path: '/',
