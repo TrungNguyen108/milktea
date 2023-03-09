@@ -13,7 +13,7 @@ class AccountInfoScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Thông tin tài khoản'),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xffFEDEB9),
         elevation: 0,
         leading: GestureDetector(
           onTap: () => Navigator.of(context).pop(),

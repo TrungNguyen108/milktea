@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../product/screens/home_screens.dart';
@@ -157,7 +158,7 @@ class _PayMentPageState extends ConsumerState<PayMentPage> with TickerProviderSt
                   Text('Phương thức thanh toán',style: TextStyle(fontSize: 14,color: Colors.black),),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+                      context.push('/cart');
                     },
                     child: Text('Xem tất cả',
                       style: TextStyle(fontSize: 13,color: Color(0xFFFB9116)),
@@ -190,7 +191,7 @@ class _PayMentPageState extends ConsumerState<PayMentPage> with TickerProviderSt
               alignment: Alignment.center,
               child: GFButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => OrderSuccess()));
+                  context.push('/order_success');
                 },
                 text: "Đặt Hàng",
                 color: Color(0xFFFB9116),

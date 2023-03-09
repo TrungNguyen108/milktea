@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import '../../product/screens/home_screens.dart';
 import '../../product/screens/widgets/bottombar.dart';
 import '../model/cart_model.dart';
 import '../provider/cart_provider.dart';
-import 'payment_screens.dart';
-
 
 List<CartModel> items = [];
 class CartPage extends ConsumerWidget {
@@ -179,7 +177,7 @@ class CartPage extends ConsumerWidget {
                         alignment: Alignment.center,
                         child: GFButton(
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => PayMentPage()));
+                            context.push('/payment_page');
                           },
                           text: "Tiếp Tục",
                           color: Color(0xFFFB9116),
@@ -233,7 +231,7 @@ class CartPage extends ConsumerWidget {
                         minimumSize: const Size(350, 42) // NEW,
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+                      context.push('/product');
                     },
                     child: const Text(
                       'Đặt Hàng Ngay',

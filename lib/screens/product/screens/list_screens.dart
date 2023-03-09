@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
-
-import '../../order/layout_order.dart';
+import 'package:go_router/go_router.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
 import 'home_screens.dart';
-import 'like_product_screens.dart';
 import 'widgets/bottombar.dart';
 import 'widgets/product_widget.dart';
 import 'widgets/search_widget.dart';
@@ -65,7 +63,7 @@ class _ListProductState extends ConsumerState<ListProduct> {
                         color: Color(0xFFFFF5EB),
                         child: IconButton(
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LikeProduct()));
+                            context.push('/favorite');
                           },
                           icon: Icon(Icons.favorite, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),
                         )
@@ -80,7 +78,7 @@ class _ListProductState extends ConsumerState<ListProduct> {
                       color: Color(0xFFFFF5EB),
                       child: IconButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LayoutOrder()));
+                          context.push('/order');
                         },
                         icon: Icon(Icons.shopping_bag, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),)
                   ),

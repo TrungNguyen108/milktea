@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:material_dialogs/dialogs.dart';
 import 'package:material_dialogs/widgets/buttons/icon_button.dart';
 import '../../cart/provider/cart_provider.dart';
-import '../../cart/screens/cart_screens.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
 import '../provider/like_provider.dart';
@@ -303,7 +303,7 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                     child: GFButton(
                                         onPressed: (){
                                           ref.read(cartProvider.notifier).AddCart(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+                                          context.push('/cart');
                                         },
                                         text: "Mua Ngay",
                                         color: Color(0xFFFAF2EA),
@@ -317,7 +317,7 @@ class _DetailProductState extends ConsumerState<DetailProduct> with TickerProvid
                                   child: GFButton(
                                     onPressed: (){
                                       ref.read(cartProvider.notifier).AddCart(detail.id.toString(),detail.title.toString(),detail.images![0].toString(),int.parse(detail.price.toString()));
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+                                      context.push('/cart');
                                     },
                                     text: "Thêm Vào Giỏ Hàng",
                                     color: Color(0xFFFB9116),

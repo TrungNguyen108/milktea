@@ -1,8 +1,14 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/cart/screens/cart_screens.dart';
+import 'screens/cart/screens/payment_screens.dart';
+import 'screens/cart/screens/success_screens.dart';
 import 'screens/home/screens/home_screen.dart';
+import 'screens/order/layout_order.dart';
+import 'screens/product/screens/detail_screens.dart';
 import 'screens/product/screens/home_screens.dart';
+import 'screens/product/screens/like_product_screens.dart';
 import 'screens/user/screen/account_info_screen.dart';
 
 // import 'package:milktea/screen/cart_confirm_screen.dart';
@@ -12,46 +18,21 @@ import 'screens/user/screen/account_info_screen.dart';
 // import 'package:milktea/screen/product_detail_screen.dart';
 
 final GoRouter router = GoRouter(
-  debugLogDiagnostics: true,
+  debugLogDiagnostics: false,
   routes: [
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
+        // print(state);
         return const HomeScreen();
       },
       routes: [
         GoRoute(
           path: 'home',
-          name: 'home',
           builder: (BuildContext context, GoRouterState state) {
             return const ProductScreen();
           },
           routes: [
-            // GoRoute(
-            //   path: 'product/:id',
-            //   name: 'product',
-            //   builder: (BuildContext context, GoRouterState state) {
-            //     return ProductDetailScreen(
-            //       productId: int.parse(state.params['id']!),
-            //     );
-            //   },
-            // ),
-            // GoRoute(
-            //   path: 'cart',
-            //   name: 'cart',
-            //   builder: (BuildContext context, GoRouterState state) {
-            //     return const CartScreen();
-            //   },
-            //   routes: [
-            //     GoRoute(
-            //       path: 'cart_confirm',
-            //       name: 'cart_confirm',
-            //       builder: (BuildContext context, GoRouterState state) {
-            //         return const CartConfirm();
-            //       },
-            //     ),
-            //   ],
-            // ),
             GoRoute(
               path: 'account_info',
               name: 'account_info',
@@ -60,6 +41,42 @@ final GoRouter router = GoRouter(
               },
             ),
           ],
+        ),
+        GoRoute(
+          path: 'product/:id',
+          builder: (BuildContext context, GoRouterState state) {
+            return DetailProduct(id: int.parse(state.params['id']!),);
+          },
+        ),
+        GoRoute(
+          path: 'cart',
+          builder: (BuildContext context, GoRouterState state) {
+            return const CartPage();
+          },
+        ),
+        GoRoute(
+          path: 'payment_page',
+          builder: (BuildContext context, GoRouterState state) {
+            return const PayMentPage();
+          },
+        ),
+        GoRoute(
+          path: 'order_success',
+          builder: (BuildContext context, GoRouterState state) {
+            return const OrderSuccess();
+          },
+        ),
+        GoRoute(
+          path: 'order',
+          builder: (BuildContext context, GoRouterState state) {
+            return const LayoutOrder();
+          },
+        ),
+        GoRoute(
+          path: 'favorite',
+          builder: (BuildContext context, GoRouterState state) {
+            return const LikeProduct();
+          },
         ),
       ],
     ),
