@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:go_router/go_router.dart';
 import '../../account/screens/login_screen.dart';
 import '../../product/screens/home_screens.dart';
 class HomeScreen extends StatefulWidget {
@@ -13,12 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:AppBar(
-          backgroundColor: Color(0xFFFFC6B2),
-          title:Text("Home Screen",style: TextStyle(
-            color: Colors.black87,
-          ),),
-        ) ,
       body: Container(
         color: Color(0xFFFFC6B2),
         //You can use any widget
@@ -57,8 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
+                                context.push('/home');
                               },
                               text: "Bắt đầu",
                               color: Color(0xFFFB9116),
@@ -66,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(width: 10,),
                             GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                               },

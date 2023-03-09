@@ -1,44 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cart_model.dart';
+part of 'like_model_hive.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CartModelAdapter extends TypeAdapter<CartModel> {
+class LikeModelHiveAdapter extends TypeAdapter<LikeModelHive> {
   @override
   final int typeId = 0;
 
   @override
-  CartModel read(BinaryReader reader) {
+  LikeModelHive read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return CartModel(
-      title: fields[0] as String,
-      size: fields[1] as String,
-      img: fields[2] as String,
-      price: fields[3] as double,
-      quantity: fields[4] as int,
+    return LikeModelHive(
+      id_product: fields[0] as String,
+      title: fields[1] as String,
+      photo: fields[2] as String,
+      price: fields[3] as num,
     );
   }
 
   @override
-  void write(BinaryWriter writer, CartModel obj) {
+  void write(BinaryWriter writer, LikeModelHive obj) {
     writer
-      ..writeByte(5)
-      ..writeByte(0)
-      ..write(obj.title)
-      ..writeByte(1)
-      ..write(obj.size)
-      ..writeByte(2)
-      ..write(obj.img)
-      ..writeByte(3)
-      ..write(obj.price)
       ..writeByte(4)
-      ..write(obj.quantity);
+      ..writeByte(0)
+      ..write(obj.id_product)
+      ..writeByte(1)
+      ..write(obj.title)
+      ..writeByte(2)
+      ..write(obj.photo)
+      ..writeByte(3)
+      ..write(obj.price);
   }
 
   @override
@@ -47,7 +44,7 @@ class CartModelAdapter extends TypeAdapter<CartModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CartModelAdapter &&
+      other is LikeModelHiveAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

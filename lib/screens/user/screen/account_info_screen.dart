@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../product/screens/widgets/bottombar.dart';
+
 class AccountInfoScreen extends ConsumerWidget {
   const AccountInfoScreen({super.key});
 
@@ -11,7 +13,7 @@ class AccountInfoScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Thông tin tài khoản'),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xffFEDEB9),
         elevation: 0,
         leading: GestureDetector(
           onTap: () => Navigator.of(context).pop(),
@@ -313,6 +315,7 @@ class AccountInfoScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

@@ -51,6 +51,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_svg: ^2.0.1
   google_fonts: ^4.0.3
+  flutter_countdown_timer: ^4.1.0
 
 
 dev_dependencies:
@@ -76,6 +77,7 @@ flutter:
   assets:
     - assets/images/
     - assets/image/
+    - assets/icon/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

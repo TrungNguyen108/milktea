@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
-
-import '../../order/layout_order.dart';
+import 'package:go_router/go_router.dart';
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
@@ -62,7 +61,12 @@ class _ListProductState extends ConsumerState<ListProduct> {
                         width: 32,
                         height: 32,
                         color: Color(0xFFFFF5EB),
-                        child: IconButton(onPressed: null, icon: Icon(Icons.favorite, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),)
+                        child: IconButton(
+                          onPressed: (){
+                            context.push('/favorite');
+                          },
+                          icon: Icon(Icons.favorite, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),
+                        )
                     ),
                   ),
                 ),
@@ -74,7 +78,7 @@ class _ListProductState extends ConsumerState<ListProduct> {
                       color: Color(0xFFFFF5EB),
                       child: IconButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LayoutOrder()));
+                          context.push('/order');
                         },
                         icon: Icon(Icons.shopping_bag, size: 20,color: Color(0xFF808089)),padding: new EdgeInsets.all(5),)
                   ),
@@ -107,7 +111,7 @@ class _ListProductState extends ConsumerState<ListProduct> {
                       height: 25,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: data.length,
+                        itemCount: data.length > 10 ? 10 : data.length,
                         itemBuilder: (BuildContext context, i) {
                           return Container(
                             margin: EdgeInsets.only(right: 25),
