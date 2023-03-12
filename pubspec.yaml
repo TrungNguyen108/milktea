@@ -52,6 +52,8 @@ dependencies:
   flutter_svg: ^2.0.1
   google_fonts: ^4.0.3
   flutter_countdown_timer: ^4.1.0
+  pdf: ^3.9.0
+  printing: ^5.10.1
 
 
 dev_dependencies:

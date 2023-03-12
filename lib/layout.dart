@@ -6,6 +6,7 @@ import 'screens/cart/screens/payment_screens.dart';
 import 'screens/cart/screens/success_screens.dart';
 import 'screens/home/screens/home_screen.dart';
 import 'screens/order/layout_order.dart';
+import 'screens/pdf/screens/pdf_screen.dart';
 import 'screens/product/screens/detail_screens.dart';
 import 'screens/product/screens/home_screens.dart';
 import 'screens/product/screens/like_product_screens.dart';
@@ -76,6 +77,12 @@ final GoRouter router = GoRouter(
           path: 'favorite',
           builder: (BuildContext context, GoRouterState state) {
             return const LikeProduct();
+          },
+        ),
+        GoRoute(
+          path: 'pdf',
+          builder: (BuildContext context, GoRouterState state) {
+            return const PDFView();
           },
         ),
       ],

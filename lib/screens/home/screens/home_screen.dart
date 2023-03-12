@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
-                                context.push('/home');
+                                context.push('/pdf');
                               },
                               text: "Bắt đầu",
                               color: Color(0xFFFB9116),
@@ -69,6 +69,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               shape: GFButtonShape.pills,
                               text: "Đăng nhập",
+                              color: Color(0xFFFFFFFF),
+                              textColor: Colors.red,
+                            ),
+                            SizedBox(width: 10,),
+                            GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
+                              onPressed: (){
+                                context.push('/pdf');
+                              },
+                              shape: GFButtonShape.pills,
+                              text: "PDF",
                               color: Color(0xFFFFFFFF),
                               textColor: Colors.red,
                             ),
