@@ -23,12 +23,12 @@ class SearchPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar:AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: const Color(0xFFFFFFFF),
         elevation: 0,
         leadingWidth: 50,
         leading:Center(
           child: Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             width: 30,
             height: 30,
             child: ClipRRect(
@@ -41,8 +41,8 @@ class SearchPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             RichText(
-                text: TextSpan(
-                    children: [
+                text: const TextSpan(
+                    children: const [
                       TextSpan(text: 'Xin Chào ',style: TextStyle(fontSize: 13,color: Color(0xFF656565),fontFamily: "Oswald-Regular"),),
                       TextSpan(text: 'Nguyen Van A',style: TextStyle(fontSize: 13,color: Color(0xFF656565),fontFamily: 'Oswald-Medium'),)
                     ]
@@ -51,18 +51,18 @@ class SearchPage extends ConsumerWidget {
             Wrap(
               children: [
                 Container(
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(500),
                     child: Container(
                         width: 32,
                         height: 32,
-                        color: Color(0xFFFFF5EB),
+                        color: const Color(0xFFFFF5EB),
                         child: IconButton(
                           onPressed: (){
                             context.push('/favorite');
                           },
-                          icon: Icon(Icons.favorite, size: 20,),padding: new EdgeInsets.all(5),)
+                          icon: const Icon(Icons.favorite, size: 20,),padding: const EdgeInsets.all(5),)
                     ),
                   ),
                 ),
@@ -71,12 +71,12 @@ class SearchPage extends ConsumerWidget {
                   child: Container(
                       width: 32,
                       height: 32,
-                      color: Color(0xFFFFF5EB),
+                      color: const Color(0xFFFFF5EB),
                       child: IconButton(
                         onPressed: (){
                           context.push('/order');
                         },
-                        icon: Icon(Icons.shopping_bag, size: 20,),padding: new EdgeInsets.all(5),)
+                        icon: const Icon(Icons.shopping_bag, size: 20,),padding: const EdgeInsets.all(5),)
                   ),
                 )
               ],
@@ -91,13 +91,13 @@ class SearchPage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Thưởng thức trà sữa ngon',
+              const Text('Thưởng thức trà sữa ngon',
                 style: TextStyle(fontSize: 20,color: Colors.black,fontFamily: 'Oswald-Medium'),
                 textAlign: TextAlign.left,
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Search(),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Column(
                 children: [
                   items.length > 0 ? Column(
@@ -107,11 +107,11 @@ class SearchPage extends ConsumerWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Từ khóa: ' + '\' $keyword \'', style: TextStyle(fontSize: 14,color: Colors.black)),
-                          Text('Gồm: ' + items.length.toString() +' sản phẩm', style: TextStyle(fontSize: 14,color: Colors.black)),
+                          Text('Từ khóa: ' + '\' $keyword \'', style: const TextStyle(fontSize: 14,color: Colors.black)),
+                          Text('Gồm: ' + items.length.toString() +' sản phẩm', style: const TextStyle(fontSize: 14,color: Colors.black)),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       GridView.builder(
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisExtent: 210,
@@ -128,17 +128,17 @@ class SearchPage extends ConsumerWidget {
                           }
                       ),
                     ],
-                  ) : Center(
+                  ) : const Center(
                     child: Text('Không tìm thấy sản phẩm nào.'),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomBar(),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }

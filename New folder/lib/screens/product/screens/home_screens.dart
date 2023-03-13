@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mikltea/screens/product/screens/list_screens.dart';
-
 import '../model/categories_model.dart';
 import '../model/product_dio.dart';
 import '../model/product_model.dart';
