@@ -639,11 +639,7 @@ packages:
       sha256: a34ecd7fb548f8e57321fd8e50d865d266941b54e6c3b7758cf8f37c24116905
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "2.0.7"
-=======
-    version: "2.1.4"
->>>>>>> 94c81f77e631001ba87077fad214dbb54291fb08
   pdf:
     dependency: "direct main"
     description:
