@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.only(left: 20,right: 20),
                               onPressed: (){
                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen()));
-                                context.push('/pdf');
+                                context.push('/home');
                               },
                               text: "Bắt đầu",
                               color: Color(0xFFFB9116),
