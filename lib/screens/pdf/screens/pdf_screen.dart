@@ -21,24 +21,24 @@ class _PDFViewState extends ConsumerState<PDFView> {
   void initState() {
     super.initState();
   }
-  final pdf_order = ref.watch(futurePdfOrderProvider('1'));
+
   @override
   Widget build(BuildContext context) {
+    final pdf_order = ref.watch(futurePdfOrderProvider('1'));
     return Scaffold(
       body: PdfPreview(
-        build: (format) => _createPdf( format),
+        build: (format , PdfProductModel) => _createPdf( format , pdf_order),
       ),
     );
   }
 
-  Future<Uint8List> _createPdf(PdfPageFormat format,) async {
+  Future<Uint8List> _createPdf(PdfPageFormat format, items) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_4,compress: true,);
     final ByteData bytes = await rootBundle.load('assets/image/order_detail.png');
     final Uint8List byteList = bytes.buffer.asUint8List();
     final mulishRegular = await PdfGoogleFonts.mulishRegular();
     final mulishBold = await PdfGoogleFonts.mulishBold();
-
-    // final pdf_order = ref.watch(futurePdfOrderProvider('1'));
+    print(items);
 
     pdf.addPage(
       pw.MultiPage(
@@ -329,6 +329,7 @@ class _PDFViewState extends ConsumerState<PDFView> {
                                 pdfTitle("Thành Tiền", mulishBold),
                               ],
                             ),
+
                             pw.TableRow(
                               children: [
                                 pdfTitle("1", mulishRegular),

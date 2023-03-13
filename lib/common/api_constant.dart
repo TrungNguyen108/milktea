@@ -5,6 +5,6 @@ class ApiConstant {
   static final String CATEGORY_PRODUCT_URL = "https://api.escuelajs.co/api/v1/categories";
   static final String LIST_CATEGORY_PRODUCT_URL = "https://api.escuelajs.co/api/v1/products/?categoryId=";
   static final String SEARCH_PRODUCT_URL = "https://api.escuelajs.co/api/v1/products/?title=";
-  static final String PDF_ORDER_URL = "https://dummyjson.com/carts/1";
+  static final String PDF_ORDER_URL = "https://dummyjson.com/carts/";
 
 }
