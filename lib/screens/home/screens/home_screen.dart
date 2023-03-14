@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:go_router/go_router.dart';
 import '../../account/screens/login_screen.dart';
-import '../../product/screens/home_screens.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -72,7 +71,27 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Color(0xFFFFFFFF),
                               textColor: Colors.red,
                             ),
-
+                            SizedBox(width: 10,),
+                            GFButton(
+                              padding: EdgeInsets.only(left: 20,right: 20),
+                              onPressed: (){
+                                context.push('/pdf');
+                              },
+                              shape: GFButtonShape.pills,
+                              text: "PDF",
+                              color: Color(0xFFFFFFFF),
+                              textColor: Colors.red,
+                            ),
+                            // GFButton(
+                            //   padding: EdgeInsets.only(left: 20,right: 20),
+                            //   onPressed: (){
+                            //     context.push('/maps');
+                            //   },
+                            //   shape: GFButtonShape.pills,
+                            //   text: "Chỉ đường",
+                            //   color: Color(0xFFFFFFFF),
+                            //   textColor: Colors.red,
+                            // ),
                           ],
                         ),
                       ),

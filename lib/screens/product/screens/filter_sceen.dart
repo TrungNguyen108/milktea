@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
 import '../model/product_model.dart';
-import '../provider/search_provider.dart';
+import '../provider/filter_provider.dart';
 import 'widgets/bottombar.dart';
+import 'widgets/filter_widget.dart';
 import 'widgets/product_widget.dart';
-import 'widgets/search_widget.dart';
 
-
-var keyword= '';
 List<ProductModel> items = [];
 
-class SearchPage extends ConsumerWidget {
-  const SearchPage({Key? key}) : super(key: key);
+class FilterPage extends ConsumerWidget {
+  const FilterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchState = ref.watch(searchProvider);
-    items = searchState.listProducts;
-    keyword = searchState.keyword;
+    final filterState = ref.watch(filterProvider);
+    items = filterState.listProducts;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -91,12 +89,30 @@ class SearchPage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Thưởng thức trà sữa ngon',
-                style: TextStyle(fontSize: 20,color: Colors.black,fontFamily: 'Oswald-Medium'),
-                textAlign: TextAlign.left,
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('Lọc sản phẩm',
+                      style: TextStyle(fontSize: 20,color: Colors.black,fontFamily: 'Oswald-Medium'),
+                      textAlign: TextAlign.left,
+                    ),
+                    GestureDetector(
+                      child: Icon(Icons.filter_list,size: 25,color: Colors.black),
+                      onTap: (){
+                        showModalBottomSheet<void>(
+                          context: context,
+                          // backgroundColor: Colors.transparent,
+                          builder: (BuildContext context) {
+                            return Filter();
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 15),
-              Search(),
               const SizedBox(height: 15),
               Column(
                 children: [
@@ -104,13 +120,6 @@ class SearchPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Từ khóa: ' + '\' $keyword \'', style: const TextStyle(fontSize: 14,color: Colors.black)),
-                          Text('Gồm: ' + items.length.toString() +' sản phẩm', style: const TextStyle(fontSize: 14,color: Colors.black)),
-                        ],
-                      ),
                       const SizedBox(height: 10),
                       GridView.builder(
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -125,7 +134,7 @@ class SearchPage extends ConsumerWidget {
                           itemCount: items.length,
                           itemBuilder: (context, i) {
                             return ItemProduct(item: items[i]);
-                          }
+                          },
                       ),
                     ],
                   ) : const Center(
